@@ -62,7 +62,7 @@ python tw_training.py --saving True --fix_priv --task_name TASK_NAME
 ### Learning the temporal lower bound
 Replace `CKPT` to the time-unaware policy ckpt name (same as its folder name and wandb name).
 ```
-python ppo_training.py --saving --fix_priv --reset_critic --warmup_iters 50 --no_dense --epstimeRewardScale "[100, 100]" --successRewardScale 1000 --index_episode init --checkpoint CKPT --task_name TASK_NAME
+python tw_training.py --saving --fix_priv --reset_critic --warmup_iters 50 --no_dense --epstimeRewardScale "[100, 100]" --successRewardScale 1000 --index_episode init --checkpoint CKPT --task_name TASK_NAME
 ```
 
 ### Embed temporal observations
@@ -74,7 +74,7 @@ python tw_training.py --stu_train --saving True --lr 5e-4 --warmup_rand --time_r
 ### Estimate the temporal lower bound
 Replace `CKPT` to the augmented time-optimal policy ckpt name in the previous stage.
 ```
-python tw_evaluation.py --saving True --num_envs 10000 --target_success_eps 10000 --target_record_eps 1000 --save_threshold 10 --record_init_configs --use_par_checkpoint --index_episode best --checkpoint CKPT
+python tw_training.py --saving True --num_envs 10000 --target_success_eps 10000 --target_record_eps 1000 --save_threshold 10 --record_init_configs --use_par_checkpoint --index_episode best --checkpoint CKPT
 ```
 
 ### Learning the time-aware policy
