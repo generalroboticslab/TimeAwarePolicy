@@ -1,0 +1,69 @@
+# used to create the object
+name: FrankaGmPour
+
+physics_engine: ${..physics_engine}
+
+env:
+  # number of envs will override the device setting in gym. 
+  numEnvs: ${resolve_default:16384,${...num_envs}}
+  envSpacing: 1.5
+  enableDebugVis: False
+
+  clipObservations: 5.0
+  clipActions: 1.0
+
+  startPositionNoise: 0.1
+  startRotationNoise: 3.14
+  frankaPositionNoise: 0.0
+  frankaRotationNoise: 0.0
+  frankaDofNoise: 0.
+
+  aggregateMode: 3
+
+  actionScale: 1.0
+  distRewardScale: 0.025
+  liftRewardScale: 0.5
+  alignRewardScale: 2
+  holdRewardScale: 5 # Hold reward includes the gm in the cup
+  # perGmSuccessRewardScale: 0
+  actionPenaltyScale: 0.
+  forcePenaltyScale: 0.01 # If change this, also change the contact collection in sim!
+
+  asset:
+    assetRoot: "../../assets"
+    assetFileNameFranka: "urdf/franka_description/robots/franka_panda_gripper.urdf"
+
+  # set to True if you use camera sensors in the environment
+  enableCameraSensors: False
+  
+
+
+sim:
+  # Substeps really affect the performance of the simulation.
+  substeps: 2
+  up_axis: "z"
+  use_gpu_pipeline: ${eq:${...pipeline},"gpu"}
+  gravity: [0.0, 0.0, -9.81]
+  physx:
+    num_threads: ${....num_threads}
+    solver_type: ${....solver_type}
+    use_gpu: ${contains:"cuda",${....sim_device}} # set to False to run on CPU
+    num_position_iterations: 8
+    num_velocity_iterations: 8
+    contact_offset: 0.005
+    rest_offset: 0.0
+    bounce_threshold_velocity: 0.2
+    max_depenetration_velocity: 1000.0
+    default_buffer_size_multiplier: 5.0
+    max_gpu_contact_pairs: 10485760 # 1024*1024
+    num_subscenes: ${....num_subscenes}
+    contact_collection: 1 # 0: CC_NEVER (don't collect contact info), 1: CC_LAST_SUBSTEP (collect only contacts on last substep), 2: CC_ALL_SUBSTEPS (broken - do not use!)
+    # custom
+    # friction_offset_threshold: 0.01
+    # friction_correlation_distance: 0.0005
+
+task:
+  randomize: False
+
+
+# Custom Arguments

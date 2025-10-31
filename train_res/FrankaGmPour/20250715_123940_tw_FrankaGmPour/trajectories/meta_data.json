@@ -1,0 +1,27 @@
+{
+    "milestone": {},
+    "training_info": {
+        "last_episode": {
+            "global_iter": 13423,
+            "global_episodes": 45163566,
+            "global_steps": 7037534208,
+            "success_rate": 0.9949943058083589,
+            "reward": 1170.1334228515625,
+            "cost": 0.0019171250751242042,
+            "eps_time": 5.827250003814697,
+            "eps_horizon": 463.2511291503906,
+            "eps_max_scevel": 0.3708118796348572
+        },
+        "best_rew": {
+            "iteration": 12801,
+            "reward": 1171.0484833400697,
+            "pure_reward": 1173.9718017578125,
+            "cost": 0.0029233184177428484
+        },
+        "best_suc": {
+            "iteration": 817,
+            "success_rate": 0.9998999834060669
+        },
+        "last_ckpt_iter": 13423
+    }
+}
