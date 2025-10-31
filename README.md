@@ -89,7 +89,7 @@ python tw_training.py --saving True --lr 2e-4 --gamma 1. --no_dense --time2end -
 ```
 python tw_evaluation.py --saving True --num_envs 2000 --target_success_eps 2000 --strict_eval 
 
-# Use container as target instead of another cube +
+# (For cube stacking task only) Use a container as target instead of another cube +
 --use_container
 
 # For the time-unaware policy +
@@ -170,7 +170,7 @@ We are using the joint impedance controller and the gripper control from [franka
 We using realsense camera for the experiment. To calibrate the camera external matrix, you can follow [Franka-camera calibration](https://fr3setup.readthedocs.io/en/latest/camera_calibration/moveit.html).
 
 ### Real robot evaluation
-After setting up the controller and the camera, you can start to receive the command and send to the joint impedance controller and gripper control.
+After setting up the controller and the camera, you can start to receive the command and send to the joint impedance controller and gripper controller.
 
 ```
 python tw_evaluation.py --saving False --num_envs 1 --real_robot --par_configs --index_episode best_rew --checkpoint CKPT
@@ -221,11 +221,11 @@ python tw_evaluation.py --saving False --num_envs 1 --real_robot --par_configs -
 │   ├── python
 │   └── README.txt
 ├── tw_training.py          # Training script
-├── tw_training_utils.py    # Training helper scripts
+├── tw_training_utils.py    # Training helper script
 ├── tw_evaluation.py        # Evaluation script
-├── tw_evaluation_utils.py  # Evaluation helper scripts
-├── tf_utils.py             # Transformation helper scripts
-├── utils.py                # General (I/O) helper scripts
+├── tw_evaluation_utils.py  # Evaluation helper script
+├── tf_utils.py             # Transformation helper script
+├── utils.py                # General (I/O) helper script
 ├── requirements.txt        # Dependencies
 ├── README.md
 ```
