@@ -79,7 +79,7 @@ python tw_training.py --saving True --num_envs 10000 --target_success_eps 10000 
 
 ### Learning the time-aware policy
 Replace `CKPT` to same augmented time-optimal policy ckpt name in the previous stage.
-This stage will use the configurations that collected in the previous stage.
+This stage will use configurations that collected in the previous stage.
 ```
 python tw_training.py --saving True --lr 2e-4 --gamma 1. --no_dense --time2end --time_ratio --ratio_range "[0.2, 1]" --use_cost --fixed_configs --epstimeRewardScale "[100, 100]" --index_episode best --checkpoint CKPT --task_name TASK_NAME
 ```
