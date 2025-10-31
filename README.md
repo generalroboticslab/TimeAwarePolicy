@@ -22,7 +22,7 @@ cd isaacgym/python && pip install -e . && cd ../..
 ```
 
 ## Quick Start
-Run following checkpoint to check play with time-aware policy!
+Run following command to play with time-aware policy!
 
 🎮 Keyboard Controls
 - ⬆️ Increase the time ratio by 0.1
