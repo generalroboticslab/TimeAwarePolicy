@@ -85,6 +85,8 @@ python tw_training.py --saving True --lr 2e-4 --gamma 1. --no_dense --time2end -
 ```
 
 ## Evaluation
+After each evaluation, results are saved in the `\eval_res` folder.
+
 ### Experiment 1: Time awareness improves efficiency and punctuality
 ```
 python tw_evaluation.py --saving True --num_envs 2000 --target_success_eps 2000 --strict_eval 
