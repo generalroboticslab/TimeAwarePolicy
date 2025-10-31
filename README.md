@@ -1,6 +1,6 @@
 # Time-Aware Policy Learning for Adaptive and Punctual Robot Control
 
-### [Yinsen Jia](), [Boyuan Chen]()
+### [Yinsen Jia](https://yjia.net), [Boyuan Chen](http://boyuanchen.com)
 Duke University
 
 **Webpage: [TBD]()** <br>
