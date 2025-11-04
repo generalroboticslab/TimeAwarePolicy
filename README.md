@@ -3,9 +3,9 @@
 ### [Yinsen Jia](https://yjia.net), [Boyuan Chen](http://boyuanchen.com)
 Duke University
 
-**Webpage: [TBD]()** <br>
 **Paper: [TBD]()** <br>
-**Paper: [TBD]()**
+**Video: [TBD]()** <br>
+**Website: [http://generalroboticslab.com/Time-Aware](http://generalroboticslab.com/Time-Aware)**
 
 <div align="left">
     <img src="web_assets/teaser.gif" width="800">
@@ -215,13 +215,6 @@ python tw_evaluation.py --saving False --num_envs 1 --real_robot --par_configs -
 │   ├── SocketClient.py
 │   └── StateEstimator.py
 ├── isaacgym                # Isaacgym simulator
-│   ├── assets
-│   ├── create_conda_env_rlgpu.sh
-│   ├── docker
-│   ├── docs
-│   ├── licenses
-│   ├── python
-│   └── README.txt
 ├── tw_training.py          # Training script
 ├── tw_training_utils.py    # Training helper script
 ├── tw_evaluation.py        # Evaluation script
@@ -233,11 +226,11 @@ python tw_evaluation.py --saving False --num_envs 1 --real_robot --par_configs -
 ```
 
 ## License
-This repository is released under the CC BY-NC-ND 4.0 License. Duke University has filed patent rights for the technology associated with this article. For further license rights, including using the patent rights for commercial purposes, please contact Duke's Office for Translation and Commercialization ([otcquestions@duke.edu](mailto:otcquestions@duke.edu)) and reference OTC DU8860PROV. See [LICENSE](https://github.com/generalroboticslab/Argus/blob/main/LICENSE-CC-BY-NC-ND-4.0.md) for additional details. 
+This repository is released under the CC BY-NC-ND 4.0 License. Duke University has filed patent rights for the technology associated with this article. For further license rights, including using the patent rights for commercial purposes, please contact Duke's Office for Translation and Commercialization ([otcquestions@duke.edu](mailto:otcquestions@duke.edu)) and reference OTC TBD. See [LICENSE](LICENSE-CC-BY-NC-ND-4.0.md) for additional details. 
 
 
 ## Acknowledgement
-This work is supported by DARPA FoundSci program under award HR00112490372, DARPA TIAMAT program under award HR00112490419, ARO under award W911NF2410405, ARL STRONG program under awards W911NF2320182, W911NF2220113, and W911NF242021, and by gift supports from BMW.
+This work is supported by DARPA TIAMAT program under award HR00112490419, ARO under award W911NF2410405, and ARL STRONG program under awards W911NF2320182, W911NF2220113, and W911NF242021.
 
 
 ## BibTeX
