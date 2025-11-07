@@ -39,7 +39,7 @@ def get_args():
     
     # Evaluation task parameters
     parser.add_argument('--seed', type=int, default=123456)
-    parser.add_argument('--warmup_episodes', type=int, default=1)
+    parser.add_argument('--warmup_episodes', type=int, default=0)
     parser.add_argument('--target_episodes', type=int, default=20000)
     parser.add_argument('--target_success_eps', type=int, default=None)
     parser.add_argument('--target_record_eps', type=int, default=None)

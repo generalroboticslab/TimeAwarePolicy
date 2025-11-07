@@ -470,7 +470,8 @@ class Evaluator:
                     next_obs, next_done, next_lstm_state = self.reset_obs_done()
                     
                     temp_num_episodes = 0
-                    warmup_end = False
+                    warmup_end = False if (self.args.warmup_episodes > 0) and (not self.args.saving) \
+                                 else True
                     self.agent.deterministic = self.args.deterministic
                     
                     # Reset buffers
@@ -486,7 +487,8 @@ class Evaluator:
                     print(f"Start Evaluating: {self.args.target_episodes} Trials | "
                           f"Goal Speed: {cur_goal_speed} | {dynamic_change_name}: {cur_dynamic_v} | "
                           f"{self.args.target_success_eps} Success Trials Required")
-                    print(f"Warmup Episodes: {temp_num_episodes}/{self.args.warmup_episodes}")
+                    if not warmup_end:
+                        print(f"Warmup Episodes: {temp_num_episodes}/{self.args.warmup_episodes}")
                     
                     start_time = time.perf_counter()
                     
@@ -524,15 +526,15 @@ class Evaluator:
                         terminal_nums = terminal_index.sum().item()
                         
                         if terminal_nums > 0:
-                            if temp_num_episodes < self.args.warmup_episodes:
+                            if (temp_num_episodes < self.args.warmup_episodes) and (not warmup_end):
                                 temp_num_episodes += terminal_nums
-                                for key in self.step_metrics.keys():
-                                    self.step_metrics[key][:] = 0.
-                                continue
-                            elif not warmup_end:
-                                warmup_end = True
-                                print(f"End Warmup Episodes: {temp_num_episodes}/{self.args.warmup_episodes}")
-                                continue
+                                if temp_num_episodes >= self.args.warmup_episodes:
+                                    warmup_end = True
+                                    print(f"End Warmup Episodes: {temp_num_episodes}/{self.args.warmup_episodes}")
+                                else:
+                                    for key in self.step_metrics.keys():
+                                        self.step_metrics[key][:] = 0.
+                                    continue
                             
                             if self.args.strict_eval:
                                 terminal_index = (valid_env_ids != -1) & terminal_index

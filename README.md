@@ -34,17 +34,17 @@ Run following command to play with the time-aware policy!
 
 ### Cube stacking
 ```
-python tw_evaluation.py --rendering --num_envs 1 --par_configs --checkpoint 20250717_162724_tw_FrankaCubeStack --index_episode best_rew --keyboard_ctrl --simple_layout --draw_scevel --goal_speed 0.6
+python tw_evaluation.py --rendering --num_envs 1 --par_configs --checkpoint 20250717_162724_tw_FrankaCubeStack --index_episode best_rew --keyboard_ctrl --draw_scevel --goal_speed 0.6
 ```
 
 ### Granular media pouring
 ```
-python tw_evaluation.py --rendering --num_envs 1 --par_configs --checkpoint 20250715_123940_tw_FrankaGmPour --index_episode best_rew --keyboard_ctrl --simple_layout --draw_scevel --goal_speed 0.6
+python tw_evaluation.py --rendering --num_envs 1 --par_configs --checkpoint 20250715_123940_tw_FrankaGmPour --index_episode best_rew --keyboard_ctrl --draw_scevel --goal_speed 0.6
 ```
 
 ### Drawer opening
 ```
-python tw_evaluation.py --rendering --num_envs 1 --par_configs --checkpoint 20250730_151924_tw_FrankaCabinet --index_episode best_rew --keyboard_ctrl --simple_layout --draw_scevel --goal_speed 0.6
+python tw_evaluation.py --rendering --num_envs 1 --par_configs --checkpoint 20250730_151924_tw_FrankaCabinet --index_episode best_rew --keyboard_ctrl --draw_scevel --goal_speed 0.6
 ```
 
 ## Training
@@ -56,7 +56,7 @@ We use wandb for logging. Therefore, you might need to log to your own account.
 
 ### Time-Unaware policy training
 ```
-python tw_training.py --saving True --fix_priv --task_name TASK_NAME
+python tw_training.py --saving --fix_priv --task_name TASK_NAME
 ```
 
 ### Learning the temporal lower bound
@@ -68,20 +68,20 @@ python tw_training.py --saving --fix_priv --reset_critic --warmup_iters 50 --no_
 ### Embed temporal observations
 Replace `CKPT` to the time-optimal policy ckpt name in the previous stage.
 ```
-python tw_training.py --stu_train --saving True --lr 5e-4 --warmup_rand --time_ratio --quiet False --wandb False  --index_episode best_rew --checkpoint CKPT --task_name TASK_NAME
+python tw_training.py --saving --stu_train --lr 5e-4 --warmup_rand --time_ratio --quiet False --wandb False --index_episode best_rew --checkpoint CKPT --task_name TASK_NAME
 ```
 
 ### Estimate the temporal lower bound
 Replace `CKPT` to the augmented time-optimal policy ckpt name in the previous stage.
 ```
-python tw_training.py --saving True --num_envs 10000 --target_success_eps 10000 --target_record_eps 1000 --save_threshold 10 --record_init_configs --use_par_checkpoint --index_episode best --checkpoint CKPT
+python tw_evaluation.py --saving --num_envs 10000 --target_success_eps 10000 --target_record_eps 1000 --save_threshold 10 --record_init_configs --use_par_checkpoint --index_episode best --checkpoint CKPT
 ```
 
 ### Learning the time-aware policy
 Replace `CKPT` to same augmented time-optimal policy ckpt name in the previous stage.
 This stage will use configurations that collected in the previous stage.
 ```
-python tw_training.py --saving True --lr 2e-4 --gamma 1. --no_dense --time2end --time_ratio --ratio_range "[0.2, 1]" --use_cost --fixed_configs --epstimeRewardScale "[100, 100]" --index_episode best --checkpoint CKPT --task_name TASK_NAME
+python tw_training.py --saving --lr 2e-4 --gamma 1. --no_dense --time2end --time_ratio --ratio_range "[0.2, 1]" --use_cost --fixed_configs --epstimeRewardScale "[100, 100]" --index_episode best --checkpoint CKPT --task_name TASK_NAME
 ```
 
 ## Evaluation
@@ -89,7 +89,7 @@ After each evaluation, results are saved in the `\eval_res` folder.
 
 ### Experiment 1: Time awareness improves efficiency and punctuality
 ```
-python tw_evaluation.py --saving True --num_envs 2000 --target_success_eps 2000 --strict_eval 
+python tw_evaluation.py --saving --num_envs 2000 --target_success_eps 2000 --strict_eval 
 
 # (For cube stacking task only) Use a container as target instead of another cube +
 --use_container
@@ -103,7 +103,7 @@ python tw_evaluation.py --saving True --num_envs 2000 --target_success_eps 2000 
 
 ### Experiment 2: Adaptive stability and environmental robustness
 ```
-python tw_evaluation.py --saving True --num_envs 2000 --target_success_eps 2000 --strict_eval 
+python tw_evaluation.py --saving --num_envs 2000 --target_success_eps 2000 --strict_eval 
 
 # Cube stacking (increase the restitution) +
 --add_restitution
@@ -131,7 +131,7 @@ python tw_evaluation.py --saving True --num_envs 2000 --target_success_eps 2000 
 ### Experiment 3: Punctuallity and resiliency
 This experiment uses `FrankaCubeStack` task.
 ```
-python tw_evaluation.py --saving True --num_envs 2000 --target_success_eps 2000 --strict_eval --apply_disturbances --disturbance_v 10
+python tw_evaluation.py --saving --num_envs 2000 --target_success_eps 2000 --strict_eval --apply_disturbances --disturbance_v 10
 
 # For the time-unaware policy +
 --index_episode init --checkpoint CKPT
@@ -144,7 +144,7 @@ python tw_evaluation.py --saving True --num_envs 2000 --target_success_eps 2000 
 Heuristic stage-wise control: the manipulation process is divided into distinct stages. Each
 stage is assigned a tailored time ratio.
 ```
-python tw_evaluation.py --saving True --num_envs 2000 --target_success_eps 2000 --strict_eval --par_configs --index_episode best_rew --goal_speed 0.5 --checkpoint CKPT
+python tw_evaluation.py --saving --num_envs 2000 --target_success_eps 2000 --strict_eval --par_configs --index_episode best_rew --goal_speed 0.5 --checkpoint CKPT
 
 # Cube stacking +
 --budget_portion "[0.15, 0.35, 0.15, 0.35]" --speed_describe "[1, 0, 1, 0]" 
@@ -160,7 +160,7 @@ Online interface control: the user provides real-time time ratio via a simple an
 interface (e.g., keyboard or slider) to directly steer the behavior of the robot to align with
 high-level human intents.
 ```
-python tw_evaluation.py --saving False --rendering --draw_scevel --keyboard_ctrl --simple_layout --num_envs 1 --par_configs --index_episode best_rew --checkpoint CKPT
+python tw_evaluation.py --rendering --draw_scevel --keyboard_ctrl --simple_layout --num_envs 1 --par_configs --index_episode best_rew --checkpoint CKPT
 ```
 
 
@@ -175,7 +175,7 @@ We using realsense camera for the experiment. To calibrate the camera external m
 After setting up the controller and the camera, you can start to receive the command and send to the joint impedance controller and gripper controller.
 
 ```
-python tw_evaluation.py --saving False --num_envs 1 --real_robot --par_configs --index_episode best_rew --checkpoint CKPT
+python tw_evaluation.py --num_envs 1 --real_robot --par_configs --index_episode best_rew --checkpoint CKPT
 
 # To specify the real world scheduled time (e.g. 10s) +
 --goal_time 10s
@@ -189,7 +189,7 @@ python tw_evaluation.py --saving False --num_envs 1 --real_robot --par_configs -
 
 Real robot online interface control
 ```
-python tw_evaluation.py --saving False --num_envs 1 --real_robot --par_configs --keyboard_ctrl --simple_layout --goal_speed 0.2 --draw_scevel --index_episode best_rew --checkpoint CKPT
+python tw_evaluation.py --num_envs 1 --real_robot --par_configs --keyboard_ctrl --draw_scevel --goal_speed 0.2 --index_episode best_rew --checkpoint CKPT
 ```
 
 ## Project structure

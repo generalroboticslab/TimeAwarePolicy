@@ -281,8 +281,8 @@ class KeyboardController:
             elif key.char == 's': 
                 print(f"Current config idx: {self.config_idx}, Current speed ratio: {self.current_value}")
         except Exception as e:
-            # print error also trace back
-            traceback.print_exc()
+            # traceback.print_exc()
+            pass
 
     def clip_current_value(self):
         """Clips the current value to the specified range."""
