@@ -226,7 +226,7 @@ python tw_evaluation.py --num_envs 1 --real_robot --par_configs --keyboard_ctrl 
 ```
 
 ## License
-This repository is released under the CC BY-NC-ND 4.0 License. Duke University has filed patent rights for the technology associated with this article. For further license rights, including using the patent rights for commercial purposes, please contact Duke's Office for Translation and Commercialization ([otcquestions@duke.edu](mailto:otcquestions@duke.edu)) and reference OTC TBD. See [LICENSE](LICENSE-CC-BY-NC-ND-4.0.md) for additional details. 
+This repository is released under the CC BY-NC-ND 4.0 License. Duke University has filed patent rights for the technology associated with this article. For further license rights, including using the patent rights for commercial purposes, please contact Duke's Office for Translation and Commercialization ([otcquestions@duke.edu](mailto:otcquestions@duke.edu)) and reference OTC DU9041PROV. See [LICENSE](LICENSE-CC-BY-NC-ND-4.0.md) for additional details. 
 
 
 ## Acknowledgement

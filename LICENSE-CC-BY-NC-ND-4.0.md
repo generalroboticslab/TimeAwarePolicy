@@ -61,7 +61,7 @@ Your exercise of the Licensed Rights is expressly made subject to the following 
 
 This repository is released under the CC BY-NC-ND 4.0 License.  
 Duke University has filed patent rights for the technology associated with this article.  
-For further license rights, including using the patent rights for commercial purposes, please contact Duke's Office for Translation and Commercialization ([otcquestions@duke.edu](mailto:otcquestions@duke.edu)) and reference **OTC TBD**.
+For further license rights, including using the patent rights for commercial purposes, please contact Duke's Office for Translation and Commercialization ([otcquestions@duke.edu](mailto:otcquestions@duke.edu)) and reference **OTC DU9041PROV**.
 
 ---
 
