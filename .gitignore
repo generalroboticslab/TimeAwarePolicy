@@ -90,6 +90,7 @@ isaacgym/python/isaacgym/__pycache__/
 aruco_markers/
 cal_results/
 commands/
+A_FinalMaterials/
 
 # Custom files
 calibration_utils.py

@@ -35,6 +35,6 @@ tensorboardX==2.6.2.2
 threadpoolctl==3.2.0
 torch==1.13.1
 trimesh==3.23.5
-mapbox_earcut=1.0.1
+mapbox_earcut==1.0.1
 urdfpy==0.0.22
 warp_lang==0.10.1
