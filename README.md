@@ -3,7 +3,7 @@
 ### [Yinsen Jia](https://yjia.net), [Boyuan Chen](http://boyuanchen.com)
 Duke University
 
-**Paper: [TBD]()** <br>
+**Paper: [https://arxiv.org/abs/2511.07654](https://arxiv.org/abs/2511.07654)** <br>
 **Video: [TBD]()** <br>
 **Website: [http://generalroboticslab.com/Time-Aware](http://generalroboticslab.com/Time-Aware)**
 
