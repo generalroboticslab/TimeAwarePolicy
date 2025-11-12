@@ -4,7 +4,7 @@
 Duke University
 
 **Paper: [https://arxiv.org/abs/2511.07654](https://arxiv.org/abs/2511.07654)** <br>
-**Video: [TBD]()** <br>
+**Video: [https://youtu.be/NwvgLdydJFk](https://youtu.be/NwvgLdydJFk)** <br>
 **Website: [http://generalroboticslab.com/Time-Aware](http://generalroboticslab.com/Time-Aware)**
 
 <div align="left">
@@ -236,12 +236,12 @@ This work is supported by DARPA TIAMAT program under award HR00112490419, ARO un
 ## BibTeX
 If you find our paper or codebase helpful, please consider citing:
 ```
-@misc{xxx,
+@misc{jia2025timeawarepolicylearningadaptive,
       title={Time-Aware Policy Learning for Adaptive and Punctual Robot Control}, 
       author={Yinsen Jia and Boyuan Chen},
       year={2025},
-      eprint={TODO},
+      eprint={2511.07654},
       archivePrefix={arXiv},
       primaryClass={cs.RO},
-      url={https://arxiv.org/abs/TODO}, 
+      url={https://arxiv.org/abs/2511.07654}, 
 }
