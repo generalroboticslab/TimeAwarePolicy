@@ -5,7 +5,7 @@ Duke University
 
 **Paper: [https://arxiv.org/abs/2511.07654](https://arxiv.org/abs/2511.07654)** <br>
 **Video: [https://youtu.be/NwvgLdydJFk](https://youtu.be/NwvgLdydJFk)** <br>
-**Website: [http://generalroboticslab.com/Time-Aware](http://generalroboticslab.com/Time-Aware)**
+**Website: [http://generalroboticslab.com/TimeAwarePolicy](http://generalroboticslab.com/TimeAwarePolicy)**
 
 <div align="left">
     <img src="web_assets/teaser.gif" width="800">
