@@ -215,6 +215,7 @@ python tw_evaluation.py --num_envs 1 --real_robot --par_configs --keyboard_ctrl 
 │   ├── SocketClient.py
 │   └── StateEstimator.py
 ├── isaacgym                # Isaacgym simulator
+├── plot_utils.py           # Visualization script
 ├── tw_training.py          # Training script
 ├── tw_training_utils.py    # Training helper script
 ├── tw_evaluation.py        # Evaluation script
