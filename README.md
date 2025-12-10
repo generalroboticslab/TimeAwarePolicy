@@ -54,7 +54,7 @@ If you want to add your own custom environments, please follow steps described i
 During training, all results are saved in the `\train_res` folder.
 We use wandb for logging. Therefore, you might need to log to your own account.
 
-### Time-Unaware policy training
+### Time-unaware policy training
 ```
 python tw_training.py --saving --fix_priv --task_name TASK_NAME
 ```
