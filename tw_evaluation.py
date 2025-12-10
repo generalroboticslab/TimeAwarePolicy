@@ -12,7 +12,7 @@ import torch
 from model.agent import *
 from tw_evaluation_utils import *
 from utils import *
-from plot_utils import RerunVis, ValueVisualizer, plot_utime_dataset, KeyboardVis, plot_pos_xyz, show_heatmap
+from plot_utils import RerunVis, ValueVisualizer, plot_utime_dataset, show_heatmap
 
 
 class Evaluator:
