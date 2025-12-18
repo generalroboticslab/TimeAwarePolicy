@@ -7,9 +7,7 @@ Duke University
 **Video: [https://youtu.be/NwvgLdydJFk](https://youtu.be/NwvgLdydJFk)** <br>
 **Website: [http://generalroboticslab.com/TimeAwarePolicy](http://generalroboticslab.com/TimeAwarePolicy)**
 
-<div align="left">
-    <img src="web_assets/teaser.gif" width="800">
-</div>
+<video src="web_assets/teaser.mp4" autoplay loop muted playsinline></video>
 
 ## Installation
 ```
