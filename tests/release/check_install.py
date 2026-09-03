@@ -2,6 +2,7 @@
 
 import argparse
 import importlib
+from importlib import metadata
 import platform
 import shutil
 import sys
@@ -23,6 +24,23 @@ REAL_ROBOT_MODULES = (
     "pyrealsense2",
     "zmq",
 )
+
+OPENCV_DISTRIBUTIONS = (
+    "opencv-python",
+    "opencv-contrib-python",
+    "opencv-python-headless",
+    "opencv-contrib-python-headless",
+)
+
+
+def _installed_opencv_distributions():
+    installed = {}
+    for distribution in OPENCV_DISTRIBUTIONS:
+        try:
+            installed[distribution] = metadata.version(distribution)
+        except metadata.PackageNotFoundError:
+            pass
+    return installed
 
 
 def main(argv=None):
@@ -50,12 +68,29 @@ def main(argv=None):
         version = getattr(module, "__version__", "available")
         print(f"[ OK ] {module_name}: {version}")
 
-    if args.real_robot and "cv2" in imported_modules:
-        if not hasattr(imported_modules["cv2"], "aruco"):
-            failures.append(("cv2.aruco", "install opencv-contrib-python"))
-            print("[FAIL] cv2.aruco: install opencv-contrib-python")
+    if args.real_robot:
+        opencv_distributions = _installed_opencv_distributions()
+        if list(opencv_distributions) != ["opencv-python"]:
+            detail = ", ".join(
+                f"{name}=={version}"
+                for name, version in opencv_distributions.items()
+            ) or "none"
+            failures.append(("OpenCV distribution", detail))
+            print(
+                "[FAIL] OpenCV distribution: expected only opencv-python; "
+                f"found {detail}"
+            )
         else:
-            print("[ OK ] cv2.aruco: available")
+            version = opencv_distributions["opencv-python"]
+            print(f"[ OK ] OpenCV distribution: opencv-python=={version}")
+
+    if args.real_robot and "cv2" in imported_modules:
+        aruco = getattr(imported_modules["cv2"], "aruco", None)
+        if aruco is None or not hasattr(aruco, "ArucoDetector"):
+            failures.append(("cv2.aruco.ArucoDetector", "unavailable"))
+            print("[FAIL] cv2.aruco.ArucoDetector: unavailable")
+        else:
+            print("[ OK ] cv2.aruco.ArucoDetector: available")
 
     if args.real_robot:
         ffmpeg = shutil.which("ffmpeg")

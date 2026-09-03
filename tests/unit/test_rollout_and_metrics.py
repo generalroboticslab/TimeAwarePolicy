@@ -1,5 +1,7 @@
+import json
 from types import SimpleNamespace
 
+import pytest
 import torch
 
 from core.evaluation.metrics import EvaluationMetricsMixin
@@ -91,3 +93,50 @@ def test_evaluation_metrics_keep_success_conditioned_values_separate():
     assert harness.eps_metrics["eps_success"][-2:].tolist() == [1.0, 0.0]
     assert harness.eps_metrics["eps_time"][-1].item() == 2.0
     assert 99.0 not in harness.eps_metrics["eps_time"].tolist()
+
+
+def _calibration_harness(tmp_path, target_records):
+    harness = EvaluationMetricsMixin()
+    harness.args = SimpleNamespace(
+        update_configs=False,
+        strict_eval=False,
+        target_record_eps=target_records,
+        instance_dir=str(tmp_path),
+        trajectory_dir=str(tmp_path),
+    )
+    return harness
+
+
+def test_temporal_calibration_accepts_exactly_the_requested_configurations(
+    tmp_path, monkeypatch
+):
+    monkeypatch.setattr(
+        "core.evaluation.visualization.plot_utime_dataset",
+        lambda *args, **kwargs: None,
+    )
+    harness = _calibration_harness(tmp_path, target_records=3)
+    infos = {
+        "init_configs": {
+            "time_used": [1.0, 2.0, 3.0],
+            "config_id": [10, 20, 30],
+        }
+    }
+
+    harness._save_init_configs(infos, num_eps_recorded=3)
+
+    saved = json.loads((tmp_path / "init_configs.json").read_text())
+    assert len(saved["time_used"]) == 3
+    assert sorted(saved["config_id"]) == [10, 20, 30]
+
+
+def test_temporal_calibration_rejects_insufficient_configurations(tmp_path):
+    harness = _calibration_harness(tmp_path, target_records=4)
+    infos = {
+        "init_configs": {
+            "time_used": [1.0, 2.0, 3.0],
+            "config_id": [10, 20, 30],
+        }
+    }
+
+    with pytest.raises(Exception, match="There are not enough configs"):
+        harness._save_init_configs(infos, num_eps_recorded=3)

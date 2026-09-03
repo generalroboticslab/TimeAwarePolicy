@@ -1,8 +1,6 @@
-"""
-No cv2.aruco module found, install opencv-contrib-python package:
-https://stackoverflow.com/questions/45972357/python-opencv-aruco-no-module-named-cv2-aruco
-Detection logic:
-https://docs.opencv.org/4.11.0/d5/dae/tutorial_aruco_detection.html
+"""ArUco-based task state estimation using the pinned OpenCV package.
+
+Detection reference: https://docs.opencv.org/4.11.0/d5/dae/tutorial_aruco_detection.html
 """
 
 import cv2

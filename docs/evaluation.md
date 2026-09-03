@@ -12,7 +12,7 @@ bash exec/TimeAwarePolicy/eval/run.sh \
 Strict mode gives every environment one rollout and then removes it from the
 active set. The reported denominator is therefore exactly 2,000.
 
-For a time-aware policy evaluated over the saved temporal calibration bank:
+For a time-aware policy evaluated over the saved temporal calibration set:
 
 ~~~bash
 bash exec/TimeAwarePolicy/eval/run.sh \
@@ -23,13 +23,13 @@ bash exec/TimeAwarePolicy/eval/run.sh \
   --checkpoint CHECKPOINT --index_episode best_rew
 ~~~
 
-The current fixed-bank implementation samples reference indices uniformly
-with replacement. A 2,000-rollout evaluation over a 1,000-entry bank therefore
-does not contain 2,000 distinct bank entries. Record this fact in result
+The current fixed-set implementation samples reference indices uniformly
+with replacement. A 2,000-rollout evaluation over a 1,000-entry set therefore
+does not contain 2,000 distinct set entries. Record this fact in result
 provenance.
 
 This generic behavior does not apply to the paired stagewise-stability
-protocol. It explicitly evaluates bank indices 0–999 twice, in identical
+protocol. It explicitly evaluates calibration-set indices 0–999 twice, in identical
 order for constant-ratio and staged controllers. Its output is therefore
 2,000 runs per controller over 1,000 distinct fixed configurations.
 
@@ -96,7 +96,7 @@ The public result utilities live under `projects/TimeAwarePolicy/`:
 - `evaluation/launch_policy_evaluations.py` orchestrates strict 2,000-rollout policy
   evaluations and records a provenance manifest;
 - `evaluation/launch_stagewise_stability.py` orchestrates paired stable-stage
-  evaluation on a fixed 1,000-configuration bank, repeated twice per configuration;
+  evaluation on a fixed 1,000-configuration set, repeated twice per configuration;
 - `evaluation/validate_stagewise_stability.py` checks those paired artifacts;
 - `paper/build_results.py` builds the available evaluation figures and
   summary tables; and
@@ -104,7 +104,7 @@ The public result utilities live under `projects/TimeAwarePolicy/`:
   CMDP curves.
 
 Inspect an entrypoint with `python -m MODULE --help`. The launchers require the
-corresponding checkpoint and calibration-bank artifact bundle; the six compact
+corresponding checkpoint and calibration-set artifact bundle; the six compact
 demo checkpoints included in this repository are documented separately in
 `docs/checkpoints.md` and are not silently substituted for missing experiment
 artifacts. Output roots are explicit command-line options rather than

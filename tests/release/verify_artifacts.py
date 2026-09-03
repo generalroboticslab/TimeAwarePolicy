@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the bundled public checkpoints and temporal calibration banks."""
+"""Verify the bundled public checkpoints and temporal calibration sets."""
 
 from __future__ import annotations
 
@@ -65,7 +65,7 @@ def verify(manifest_path: Path) -> dict:
         }
         if not sequence_lengths or set(sequence_lengths.values()) != {expected_count}:
             raise RuntimeError(
-                f"Calibration-bank cardinality mismatch for {task}: "
+                f"Calibration-set cardinality mismatch for {task}: "
                 f"{sequence_lengths}"
             )
 

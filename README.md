@@ -120,7 +120,7 @@ bash exec/TimeAwarePolicy/train/initializer_quality.sh \
 Without `--execute`, the command only prints the strict-evaluation commands it
 would run. With `--execute`, it runs those evaluations, records the measured
 held-out success, and creates the initializer checkpoint set. This set is
-different from the temporal calibration bank created later.
+different from the temporal calibration set created later.
 
 Launch matched time-optimal refinements by setting `QUALITY` and `SEED` for
 each run:
@@ -135,8 +135,8 @@ bash exec/TimeAwarePolicy/train/time_optimal.sh \
 
 ### CMDP solver comparison
 
-Assume the temporal-input student, its fixed 1,000-configuration reference
-bank, and the N-P3O validation baseline have already been produced. Hold those
+Assume the temporal-input student, its fixed 1,000-configuration calibration
+set, and the N-P3O validation baseline have already been produced. Hold those
 inputs and all training settings fixed. Set `TASK`, `TEMPORAL_STUDENT`,
 `METHOD`, and `SEED` before running:
 
@@ -230,7 +230,7 @@ bash tests/release/smoke.sh \
 │   ├── FrankaCabinet/
 │   ├── FrankaCubeStack/
 │   └── FrankaGmPour/
-├── eval_res/                # Bundled temporal calibration banks
+├── eval_res/                # Bundled temporal calibration sets
 │   ├── FrankaCabinet/
 │   ├── FrankaCubeStack/
 │   └── FrankaGmPour/
@@ -255,6 +255,9 @@ Real deployment additionally requires the Franka controller stack, RealSense
 drivers, camera extrinsic calibration, and optional hardware dependencies:
 
 ~~~bash
+conda install -c conda-forge portaudio
+export CPATH="$CONDA_PREFIX/include${CPATH:+:$CPATH}"
+export LIBRARY_PATH="$CONDA_PREFIX/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"
 pip install -r requirements-real.txt --no-cache-dir
 bash tests/release/check.sh --real-robot
 ~~~

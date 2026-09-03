@@ -2,7 +2,7 @@
 set -euo pipefail
 
 usage() {
-  echo "Usage: temporal_bank.sh --checkpoint TEMPORAL_STUDENT [extra evaluation arguments]"
+  echo "Usage: temporal_calibration.sh --checkpoint TEMPORAL_STUDENT [extra evaluation arguments]"
 }
 
 if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then

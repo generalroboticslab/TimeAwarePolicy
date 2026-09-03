@@ -1,7 +1,7 @@
 # Included checkpoints
 
 The repository includes one initializer and one final time-aware policy for
-each task, plus the matching 1,000-configuration temporal calibration bank.
+each task, plus the matching 1,000-configuration temporal calibration set.
 
 | Task | Vanilla checkpoint | Time-aware checkpoint |
 |---|---|---|
@@ -16,7 +16,7 @@ the public demos.
 
 The machine-readable source of truth is
 `projects/TimeAwarePolicy/paper/configs/bundled_files.json`. It gives the exact directory,
-selected checkpoint, calibration bank, SHA-256 checksum, and expected bank size
+selected checkpoint, calibration set, SHA-256 checksum, and expected set size
 for every task. Verify all 24 required files with:
 
 ~~~bash
@@ -33,7 +33,7 @@ The bundled initializer folders are the maintained public starting-policy
 artifacts. Historical time-aware `config.json` files may name an earlier
 temporal-student/evaluation producer used in the original run; those archived
 producer checkpoints are not silently reconstructed or relabeled. The fixed
-calibration banks required by the public time-aware demos are included and
+calibration sets required by the public time-aware demos are included and
 verified separately by the artifact manifest.
 
 Do not overwrite included folders. New runs receive timestamped names and

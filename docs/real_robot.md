@@ -21,6 +21,9 @@ Install and check the optional Python dependencies without opening a camera or
 connecting to the controller:
 
 ~~~bash
+conda install -c conda-forge portaudio
+export CPATH="$CONDA_PREFIX/include${CPATH:+:$CPATH}"
+export LIBRARY_PATH="$CONDA_PREFIX/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"
 pip install -r requirements-real.txt --no-cache-dir
 bash tests/release/check.sh --real-robot
 ~~~
@@ -72,7 +75,7 @@ bash exec/TimeAwarePolicy/eval/run.sh \
 `--not_move` suppresses command publication, but it still starts the camera,
 connects to the state stream, constructs the simulator, and executes policy
 inference. `--par_configs_eval true` loads the time-aware checkpoint's matching
-temporal calibration bank. Inspect estimated poses and generated commands
+temporal calibration set. Inspect estimated poses and generated commands
 before removing `--not_move`.
 
 ## Enabling motion and recording

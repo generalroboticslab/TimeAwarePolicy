@@ -241,10 +241,10 @@ def test_temporal_student_explicitly_preserves_temporal_inputs(tmp_path):
     )
 
 
-def test_temporal_bank_wrapper_preserves_collection_protocol(tmp_path):
+def test_temporal_calibration_wrapper_preserves_collection_protocol(tmp_path):
     arguments = _captured_python_arguments(
         tmp_path,
-        "eval/temporal_bank.sh",
+        "eval/temporal_calibration.sh",
         "--checkpoint", "student_run",
     )
     for switch in ("--saving", "--record_init_configs", "--use_par_checkpoint"):

@@ -68,7 +68,7 @@ The first command is a dry-run: it prints the strict-evaluation commands
 without launching them. `--execute` runs the evaluations and creates
 `INITIALIZER_SET`, a folder containing the selected Q40/Q60/Q80/Q95
 checkpoints and their measured-success metadata. This initializer checkpoint
-set is separate from the temporal calibration bank created after student
+set is separate from the temporal calibration set created after student
 distillation.
 
 Each candidate is measured on the same 2,000 newly sampled configurations at
@@ -99,17 +99,17 @@ bash exec/TimeAwarePolicy/train/temporal_student.sh \
 For student training, time_ratio defaults to true. The sampled time ratio
 therefore controls the remaining-time clock.
 
-## Temporal calibration bank
+## Temporal calibration
 
 ~~~bash
-bash exec/TimeAwarePolicy/eval/temporal_bank.sh \
+bash exec/TimeAwarePolicy/eval/temporal_calibration.sh \
   --checkpoint "$TEMPORAL_STUDENT"
 ~~~
 
 The command follows the student's saved parent pointer and uses the
 time-optimal policy—not the student policy—to collect 1,000
 configuration–reference pairs containing minimum-time and instability
-statistics. Passing the student checkpoint keeps this calibration bank
+statistics. Passing the student checkpoint keeps this calibration set
 associated with the matching student so the subsequent time-aware stage can
 load it directly. Results are stored under eval_res.
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "profile_kind": "bundled_files",
-  "description": "The three bundled base policies, final time-aware policies, and 1,000-configuration temporal calibration banks.",
+  "description": "The three bundled base policies, final time-aware policies, and 1,000-configuration temporal calibration sets.",
   "tasks": {
     "cube": {
       "task_name": "FrankaCubeStack",

@@ -32,12 +32,12 @@ success. Cabinet has no general contact-force failure condition because
 intentional handle grasping produces large contact forces. The Cube clearance
 is serialized in new run configurations.
 
-## Calibration-bank sampling
+## Temporal calibration sampling
 
-The 1,000-entry fixed calibration banks supply configuration-specific minimum
+The 1,000-entry fixed calibration sets supply configuration-specific minimum
 completion times and instability thresholds. Simulation evaluation currently
-samples these bank indices with replacement. If a study needs distinct
-physical configurations, generate and calibrate a larger bank or implement a
+samples these set entries with replacement. If a study needs distinct
+physical configurations, generate and calibrate a larger set or implement a
 separately versioned evaluation protocol rather than silently changing the
 denominator.
 
@@ -51,6 +51,6 @@ configuration-specific `T_min`, with `T_goal = 2*T_min`.
 Run `bash tests/release/check.sh` before checkpoint evaluation.
 The release tests load all six bundled policies strictly against their recorded
 MLP layouts. The verifier also checks each selected policy, reward normalizer,
-saved config, and calibration-bank files against
+saved config, and calibration-set files against
 `projects/TimeAwarePolicy/paper/configs/bundled_files.json`, then
-checks that every bank field contains exactly 1,000 entries.
+checks that every calibration-set field contains exactly 1,000 entries.

@@ -196,7 +196,10 @@ class EvaluationMetricsMixin:
                     bin_pointer += 1
 
                 bin_pointer %= len(utime_bins)
-                if all(len(group) == 0 for group in bin_groups.values()):
+                if (
+                    num_records < self.args.target_record_eps
+                    and all(len(group) == 0 for group in bin_groups.values())
+                ):
                     raise Exception(
                         "All Bins are empty. There are not enough configs to retrieve"
                     )

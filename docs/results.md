@@ -69,7 +69,7 @@ python -m projects.TimeAwarePolicy.evaluation.validate_stagewise_stability \
   /path/to/stagewise_stability_campaign/full_fullstable_repeat2_status.json
 ~~~
 
-The full protocol uses the fixed 1,000-configuration bank twice per
+The full protocol uses the fixed 1,000-configuration calibration set twice per
 controller. It calculates both the full-stable-stage time-average and peak
 instantaneous object-motion proxies. The distance plot uses 20 equal-width Cube
 manipulation-distance bins with a mean curve and one-standard-deviation shaded
