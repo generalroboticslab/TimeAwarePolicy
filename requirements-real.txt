@@ -1,0 +1,6 @@
+# Optional dependencies for --real_robot deployment and camera/audio tools.
+open3d==0.17.0
+opencv_contrib_python==4.11.0.86
+PyAudio==0.2.14
+pyrealsense2==2.55.1.6486
+pyzmq==27.1.0

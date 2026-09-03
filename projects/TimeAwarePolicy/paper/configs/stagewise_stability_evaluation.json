@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "profile_kind": "stagewise_stability_evaluation",
+  "description": "Paired full-stable-stage evaluation over a fixed 1,000-configuration bank repeated twice.",
+  "campaign_suffix": "fullstable_repeat2",
+  "fixed_config_repeats": 2,
+  "source_bank_size": 1000,
+  "canary_num_envs": 128,
+  "full_num_envs": 2000,
+  "checkpoint_index": "best_rew",
+  "seed": 123456,
+  "tasks": {
+    "cube": {
+      "task": "FrankaCubeStack",
+      "display_name": "Cube Stacking",
+      "panel_label": "Stacking",
+      "checkpoint": {"directory": "full3_20260818_000136_full3_cube_np3o_s1_20260818_000725"},
+      "goal_speed": 0.5,
+      "episode_length": 2000,
+      "budget_portion": [0.15, 0.35, 0.15, 0.35],
+      "speed_describe": [1, 0, 1, 0],
+      "expected_stage_ratios": [1.0, 0.2857142857142857, 1.0, 0.2857142857142857]
+    },
+    "gmpour": {
+      "task": "FrankaGmPour",
+      "display_name": "Granular Media Pouring",
+      "panel_label": "Pouring",
+      "checkpoint": {"directory": "full3_20260818_000136_full3_gmpour_np3o_s1_20260818_054418"},
+      "goal_speed": 0.5,
+      "episode_length": 2000,
+      "budget_portion": [0.5, 0.5],
+      "speed_describe": [1, 0],
+      "expected_stage_ratios": [0.8, 0.2]
+    },
+    "cabinet": {
+      "task": "FrankaCabinet",
+      "display_name": "Drawer Opening",
+      "panel_label": "Opening",
+      "checkpoint": {"directory": "additive15_20260824_031522_cabinet_np3o_finite_s1_20260824_031546"},
+      "goal_speed": 0.5,
+      "episode_length": 3000,
+      "budget_portion": [0.2, 0.2, 0.3, 0.3],
+      "speed_describe": [1, 0, 1, 0],
+      "expected_stage_ratios": [0.8, 0.2, 0.8, 0.2]
+    }
+  }
+}

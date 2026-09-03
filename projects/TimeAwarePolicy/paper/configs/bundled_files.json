@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "profile_kind": "bundled_files",
+  "description": "The three bundled base policies, final time-aware policies, and 1,000-configuration temporal calibration banks.",
+  "tasks": {
+    "cube": {
+      "task_name": "FrankaCubeStack",
+      "initializer": {
+        "directory": "train_res/FrankaCubeStack/20250716_142057_va_FrankaCubeStack",
+        "selected_checkpoint": "checkpoints/eps_best_rew",
+        "files": {
+          "config.json": "a0bd2904d196ce45768ca0cc8a3d603cfdb1a68ee459929687ba855e4bf6f73d",
+          "checkpoints/eps_best_rew": "7a9f49d3535dde3d6797d29705e6654a1e62940e2566b0579aa48feeaecf738c",
+          "checkpoints/rew_norm_eps_best_rew": "428e5e6178862e6208bc1f80ee2efa331de8af1257c0425387503adb5a9b3ab7"
+        }
+      },
+      "time_aware_policy": {
+        "directory": "train_res/FrankaCubeStack/20250717_162724_tw_FrankaCubeStack",
+        "selected_checkpoint": "checkpoints/eps_best_rew",
+        "files": {
+          "config.json": "cb55d22e2f5af4112f55f4a14014a02ac0216e7fef0ffee9a222c0efba09c014",
+          "checkpoints/eps_best_rew": "b698d495f5037e7ee53b5cb80c9ce039f858eb2de1617c6d9b4e9c8310c1f835",
+          "checkpoints/rew_norm_eps_best_rew": "7a745d77b54e0c0a5e27fc773745a6f1e8348804dd20337e122c7a2a19519bd3"
+        }
+      },
+      "reference_bank": {
+        "directory": "eval_res/FrankaCubeStack/20250706_150158_IK_FrankaCubeStack_Stu_Beta_FT_T2E_obsN_actN_gam0.99_Ctrl20Hz_Grip2Hz_maxVel0.3_LimGrip_step32_seq1_entropy0.005_seed123456_EVAL_best",
+        "configurations": 1000,
+        "files": {
+          "trajectories/init_configs.json": "6b344230f6e3d4715b5ba25045731f169f1bd879b5fce2432dabb1717fa730da",
+          "trajectories/meta_data.json": "946f274f5218e3159cb75cbe81652d4381e65d712ce15be99855d7e6bfb60053"
+        }
+      }
+    },
+    "gmpour": {
+      "task_name": "FrankaGmPour",
+      "initializer": {
+        "directory": "train_res/FrankaGmPour/20250703_164406_va_FrankaGmPour",
+        "selected_checkpoint": "checkpoints/eps_best_rew",
+        "files": {
+          "config.json": "a194910ff5655f507b73a9e9548920e75c6d3990a1e5f9a81ffa3dee33a7a779",
+          "checkpoints/eps_best_rew": "330e20dc9681184557890298b059b6e0db0b09ca8724a41f71dd911975b3f31d",
+          "checkpoints/rew_norm_eps_best_rew": "2408f182c270372bd6dfcc87414d34c68f50eaa35368d3dbdcdd9e487cf54a78"
+        }
+      },
+      "time_aware_policy": {
+        "directory": "train_res/FrankaGmPour/20250715_123940_tw_FrankaGmPour",
+        "selected_checkpoint": "checkpoints/eps_best_rew",
+        "files": {
+          "config.json": "31f9fb032549323648ce5a041e4c570322cb6ad25c995a3b8c4b4499a6d300a0",
+          "checkpoints/eps_best_rew": "518c1470bbcfac5f044204c9f5f2756d7476f8826dcf5ce4068a8bb6b1ff70c2",
+          "checkpoints/rew_norm_eps_best_rew": "76aea180b102a12da926a22dccc01ffaf78834e3a23bfd4828d69ce3a938aef4"
+        }
+      },
+      "reference_bank": {
+        "directory": "eval_res/FrankaGmPour/20250706_151042_IK_FrankaGmPour_1Gm_Stu_Beta_FT_T2E_obsN_actN_gam0.99_Ctrl20Hz_Grip2Hz_maxVel0.3_LimGrip_step32_seq1_entropy0.005_seed123456_EVAL_best",
+        "configurations": 1000,
+        "files": {
+          "trajectories/init_configs.json": "6eb448074450f854b6d27b58f88f8d1eaed7cca9dc25990ccdfe2c95dde38934",
+          "trajectories/meta_data.json": "6169300c6dbf19b8ffd930bc8300a4502ba2130d8eae11edd15b3eb9a04afb04"
+        }
+      }
+    },
+    "cabinet": {
+      "task_name": "FrankaCabinet",
+      "initializer": {
+        "directory": "train_res/FrankaCabinet/20250730_012004_va_FrankaCabinet",
+        "selected_checkpoint": "checkpoints/eps_best_rew",
+        "files": {
+          "config.json": "833db3f8cd4f04d85f5bb6845ac031da0332e53885e9904a17470ed1ac3ef094",
+          "checkpoints/eps_best_rew": "3a8bf3cff97b8331a29f3d222a81dc1eb902c035ab1b1e1200385838682a531f",
+          "checkpoints/rew_norm_eps_best_rew": "a7ecfcbc08a088b3b28fcb64ef97ae34455aca5525ddd421a2d12d22100dd59e"
+        }
+      },
+      "time_aware_policy": {
+        "directory": "train_res/FrankaCabinet/20250730_151924_tw_FrankaCabinet",
+        "selected_checkpoint": "checkpoints/eps_best_rew",
+        "files": {
+          "config.json": "8fdb24cb42ba23068e446f26f1daeaea78e19d70c385f61de2eeebc4fd5550d5",
+          "checkpoints/eps_best_rew": "aee34298ce75a1de14ea4f403c23b64342be53ebd5f2c795efc8e8593acc3446",
+          "checkpoints/rew_norm_eps_best_rew": "a7ab8d30449514ec4df01ca6d8ea02f156540adfef8054b7ecf71c31598cbe46"
+        }
+      },
+      "reference_bank": {
+        "directory": "eval_res/FrankaCabinet/20250730_120241_IK_FrankaCabinet_Stu_Beta_FT_T2E_obsN_actN_gam0.99_Ctrl20Hz_Grip2Hz_maxVel0.3_LimGrip_step32_seq1_entropy0.005_seed123456_EVAL_best",
+        "configurations": 1000,
+        "files": {
+          "trajectories/init_configs.json": "f78b204a0a5544f51c8efb23b96f63234803f2c70c35e7de29c5695f6c30130d",
+          "trajectories/meta_data.json": "bd405ff6e9f1fea43790dafe1906352912727da0239393d66aff5d14f4b4bf41"
+        }
+      }
+    }
+  }
+}

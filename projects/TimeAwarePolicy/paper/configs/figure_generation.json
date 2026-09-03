@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "profile_kind": "figure_generation",
+  "description": "Inputs for the available final three-task curves, tables, and stagewise-stability plots.",
+  "default_output_dir": "results/final_three_task",
+  "curve_inputs": {
+    "corrected": "provenance/curve_inputs/corrected_training_curve_data.csv",
+    "full3": "provenance/curve_inputs/full3_training_curve_data.csv",
+    "additive15": "provenance/curve_inputs/additive15_training_curve_data.csv",
+    "finite21": "provenance/curve_inputs/finite21_training_curve_data.csv"
+  },
+  "review_cube_dir": "results/cubestack_24run/20260817_093818_qualityresume",
+  "stagewise_stability_status": "stagewise_stability/evaluation_campaign/full_fullstable_repeat2_status.json",
+  "stagewise_stability_evaluation_profile": "projects/TimeAwarePolicy/paper/configs/stagewise_stability_evaluation.json",
+  "cmdp_solver_comparison": {
+    "campaign_dir": "results/20260825_003455_cmdp24_campaign",
+    "cabinet_seed1_csv": "results/final_three_task/provenance/curve_inputs/additive15_training_curve_data.csv",
+    "output_dir": "results/final_three_task/training_curves/cmdp"
+  }
+}

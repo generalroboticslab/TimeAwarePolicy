@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "profile_kind": "policy_evaluation",
+  "description": "Exact full-result artifacts used by the final three-task policy evaluation.",
+  "evaluation": {
+    "num_envs": 2000,
+    "warmup_episodes": 10000,
+    "checkpoint_index": "best_rew",
+    "seed": 123456,
+    "goal_ratio_range": [0.2, 1.0, 0.1]
+  },
+  "tasks": {
+    "cube": {
+      "task": "FrankaCubeStack",
+      "time_optimal": {
+        "Q40": {"pattern": "additive15_20260824_031522_cube_q40_timeopt_s1_*"},
+        "Q60": {"pattern": "additive15_20260824_031522_cube_q60_timeopt_s1_*"},
+        "Q80": {"pattern": "additive15_20260824_031522_cube_q80_timeopt_s1_*"},
+        "Q95": {"pattern": "additive15_20260824_031522_cube_q95_timeopt_s1_*"}
+      },
+      "cmdp": {
+        "N-P3O": {"pattern": "full3_20260818_000136_full3_cube_np3o_s1_*"},
+        "PPO-Lagrangian": {"pattern": "full3_20260818_000136_full3_cube_ppo_lagrangian_s1_*"},
+        "CPO": {"pattern": "full3_20260818_000136_full3_cube_cpo_s1_*"}
+      }
+    },
+    "gmpour": {
+      "task": "FrankaGmPour",
+      "time_optimal": {
+        "Q40": {"pattern": "additive15_20260824_031522_gmpour_q40_timeopt_s1_*"},
+        "Q60": {"pattern": "additive15_20260824_031522_gmpour_q60_timeopt_s1_*"},
+        "Q80": {"pattern": "additive15_20260824_031522_gmpour_q80_timeopt_s1_*"},
+        "Q95": {"pattern": "additive15_20260824_031522_gmpour_q95_timeopt_s1_*"}
+      },
+      "cmdp": {
+        "N-P3O": {"pattern": "full3_20260818_000136_full3_gmpour_np3o_s1_*"},
+        "PPO-Lagrangian": {"pattern": "full3_20260818_000136_full3_gmpour_ppo_lagrangian_s1_*"},
+        "CPO": {"pattern": "full3_20260818_000136_full3_gmpour_cpo_s1_*"}
+      }
+    },
+    "cabinet": {
+      "task": "FrankaCabinet",
+      "time_optimal": {
+        "Q40": {"pattern": "additive15_20260824_031522_cabinet_q40_timeopt_s1_*"},
+        "Q60": {"pattern": "additive15_20260824_031522_cabinet_q60_timeopt_s1_*"},
+        "Q80": {"pattern": "additive15_20260824_031522_cabinet_q80_timeopt_s1_*"},
+        "Q95": {"pattern": "additive15_20260824_031522_cabinet_q95_timeopt_s1_*"}
+      },
+      "cmdp": {
+        "N-P3O": {"pattern": "additive15_20260824_031522_cabinet_np3o_finite_s1_*"},
+        "PPO-Lagrangian": {"pattern": "additive15_20260824_031522_cabinet_ppo_lagrangian_finite_s1_*"},
+        "CPO": {"pattern": "additive15_20260824_031522_cabinet_cpo_finite_s1_*"}
+      }
+    }
+  }
+}

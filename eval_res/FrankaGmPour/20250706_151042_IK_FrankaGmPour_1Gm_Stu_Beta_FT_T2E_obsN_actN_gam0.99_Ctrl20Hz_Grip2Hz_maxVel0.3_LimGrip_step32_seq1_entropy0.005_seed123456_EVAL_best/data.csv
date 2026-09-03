@@ -1,0 +1,2 @@
+target_episodes,success_rate,avg_reward,avg_sum_eps_inst,machine_time
+3000000,0.9996500015258789,1748.3189697265625,0.0,450.84584605693817
